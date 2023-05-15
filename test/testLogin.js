@@ -14,7 +14,7 @@ so that I can see my profile
 
 
 // ta bort .only senare - only to run this testblock och .skip (skip this testblock)
-describe.only('Login to Luma demostore', () =>{
+describe('Login to Luma demostore', () =>{
     context('I click on the login and enter my credentials', () => {
         it('I should be logged in and see my profile', async () => {
             const driver = await new Builder().forBrowser('firefox').build();
