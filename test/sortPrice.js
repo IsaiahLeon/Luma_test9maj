@@ -17,14 +17,44 @@ describe.only('Sort pants by price', () => {
               // Go to LUMA
               await driver.get('https://magento.softwaretestingboard.com/')  
 
-              // Hover "Men" drop-down menu
-              // await driver.findElement(By.css('#ui-id-5')).click();
-             await driver.wait(until.elementLocated(By.css('#ui-id-5')), 10000);
-             await driver.findElement(By.css('#ui-id-5')).click(); //detta funkar
+              // Press "Men" 
+              
+              await driver.wait(until.elementLocated(By.css('#ui-id-5')), 10000);
+              await driver.findElement(By.css('#ui-id-5')).click(); //detta funkar
 
-              // Hover "Bottoms"
-             // await driver.wait(until.elementLocated(By.css('#ui-id-18')), 10000);
-              await driver.findElement(By.css('a h[ref="https://magento.softwaretestingboard.com/men/bottoms-men.html"')).click();
+              // Find all elements with the class "li.item"
+                const listItemElements = await driver.findElements(By.css('li.item'));
+
+              // Find the second-to-last element with the class "li.item" and click on it
+                const secondToLastElement = listItemElements[listItemElements.length - 11]; //testar olika -n/nn
+                await secondToLastElement.click();
+
+
+
+
+
+
+
+
+
+              // Press "Pants"
+              /*
+              driver.wait(async function () {
+                const listElements = await driver.findElements(By.css('li.item'));
+                return listElements.length > 0;
+              });
+              
+              // Find the second-to-last list element with the class "li.item" and click on it
+              driver.findElements(By.css('li.item')).then(function (listElements) {
+                const secondToLastItem = listElements[listElements.length - 2];
+                secondToLastItem.click();   
+*/
+              //var list = document.getElementsByClassName("li.item")[0];
+              //var pants = list.children[list.children.length - 2];
+              //var itemId = pants.getAttribute("pants-id");
+              
+              //await driver.wait(until.elementLocated(By.css('a[href="https://magento.softwaretestingboard.com/men/bottoms-men/pants-men.html"')), 10000);
+              //await driver.findElement(By.css('a[href="https://magento.softwaretestingboard.com/men/bottoms-men/pants-men.html"')).click();
 
               // Press "Pants"
               // await driver.findElement(By.css('#ui-id-23')).click();
